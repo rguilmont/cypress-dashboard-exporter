@@ -1,0 +1,3 @@
+cmd/cmd
+example_dockercompose/grafana/*
+.scannerwork

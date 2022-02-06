@@ -1,0 +1,33 @@
+#/opt/bitnami/prometheus/conf/prometheus.yml
+
+version: "3.3"
+services:
+  cypress-exporter:
+    build: .
+    ports:
+      - "18081:8081"
+  cypress-exporter2:
+    build: .
+    ports:
+      - "18082:8081"
+    command: ["-project", "4q7jz8"]
+  prometheus:
+    image: "bitnami/prometheus:latest"
+    volumes:
+      - './example_dockercompose/prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml'
+  grafana:
+    image: "grafana/grafana:8.2.5"
+    ports:
+      - 13000:3000
+    environment:
+      - GF_SERVER_ROOT_URL=https://rguilmont.net/grafana-example/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+      - GF_SERVER_DOMAIN=rguilmont.net
+    volumes:
+      - './example_dockercompose/grafana/:/var/lib/grafana/'
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.57.0/24
