@@ -1,5 +1,7 @@
 # Cypress.io dashboard Prometheus exporter
 
+See an example of what is possible [here](https://rguilmont.net/grafana-example/d/scjkVna7k/cypress-dashboard)
+
 Prometheus exporter for a project from Cypress.io dashboards, giving the ability to alert, make special operations or correlate with other datasources by using grafana.
 
 # Installation
