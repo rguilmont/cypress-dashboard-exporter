@@ -178,7 +178,7 @@ type GetMetricOptions struct {
 func EmptyMetricOptions() GetMetricOptions {
 	from := time.Date(2006, 1, 1, 0, 0, 0, 0, time.UTC)
 	to := time.Now()
-	defaultPaging := 3
+	defaultPaging := 10
 	return GetMetricOptions{
 		From:    optional.NewOptionalTime(&from),
 		To:      optional.NewOptionalTime(&to),
